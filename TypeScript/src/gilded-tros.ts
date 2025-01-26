@@ -17,6 +17,7 @@ export class GildedTros {
 		for (let i = 0; i < this.items.length; i++) {
 			const item = this.items[i];
 			if (item.name === SpecialItemsName.B_DAWG_KEYCHAIN) {
+				item.quality = 80; // Ensure the quality is always 80
 				continue;
 			} else if (item.name === SpecialItemsName.GOOD_WINE) {
 				this.processGoodWine(item);
