@@ -7,6 +7,7 @@ enum SpecialItemsName {
 	B_DAWG_KEYCHAIN = "B-DAWG Keychain",
 	LONG_METHODS = "Long Methods",
 	UGLY_VARIABLE_NAMES = "Ugly Variable Names",
+	DUPLICATE_CODE = "Duplicate Code",
 }
 
 export class GildedTros {
@@ -15,11 +16,13 @@ export class GildedTros {
 	public updateQuality(): void {
 		for (let i = 0; i < this.items.length; i++) {
 			const item = this.items[i];
-			if (item.name === SpecialItemsName.GOOD_WINE) {
+			if (item.name === SpecialItemsName.B_DAWG_KEYCHAIN) {
+				continue;
+			} else if (item.name === SpecialItemsName.GOOD_WINE) {
 				this.processGoodWine(item);
 			} else if (item.name === SpecialItemsName.BACKSTAGE_HAXX || item.name === SpecialItemsName.BACKSTAGE_REFACTOR) {
 				this.processBackstagePass(item);
-			} else if (item.name === SpecialItemsName.BACKSTAGE_HAXX || item.name === SpecialItemsName.BACKSTAGE_REFACTOR) {
+			} else if (item.name === SpecialItemsName.LONG_METHODS || item.name === SpecialItemsName.UGLY_VARIABLE_NAMES || item.name === SpecialItemsName.DUPLICATE_CODE) {
 				this.processSmellyItem(item);
 			} else {
 				this.processDefaultItem(item);
